@@ -1,4 +1,5 @@
 pipeline{
+    agentany
     stages{
         stage('Download'){
             steps{
