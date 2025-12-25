@@ -1,5 +1,5 @@
 pipeline{
-    stages{00
+    stages{
         stage('Download'){
             steps{
                 git 'https://github.com/IntelliqDevops/maven.git'
