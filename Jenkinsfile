@@ -13,18 +13,18 @@ pipeline{
         }
         stage('Deployment'){
             steps{
-                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'c343837b-ee02-4b32-8485-e557826c5fec', path: '', url: 'http://172.31.10.83:8080')], contextPath: 'mytestapp', war: '**/*.war'
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'f848c409-cdbf-4a9b-90ba-2f3480794b66', path: '', url: 'http://172.31.3.151:8080/')], contextPath: 'testapp', war: '**/*.war'
             }
         }
         stage('Testing'){
             steps{
                 git 'https://github.com/IntelliqDevops/FunctionalTesting.git'
-                sh 'java -jar /var/lib/jenkins/workspace/scriptedpipeline@2/testing.jar'
+                sh 'java -jar /var/lib/jenkins/workspace/scriptedpipeline/testing.jar'
             }
         }
         stage('Delivery'){
             steps{
-                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '1321c749-af3c-45be-9689-b9223f309263', path: '', url: 'http://172.31.10.247:8080')], contextPath: 'myprodapp', war: '**/*.war'
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'f848c409-cdbf-4a9b-90ba-2f3480794b66', path: '', url: 'http://172.31.2.21:8080/')], contextPath: 'prodapp', war: '**/*.war'
             }
         }
     }
