@@ -24,7 +24,7 @@ pipeline{
         }
         stage('Delivery'){
             steps{
-                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '1321c749-af3c-45be-9689-b9223f309263', path: '', url: 'http://172.31.10.247:8080')], contextPath: 'prdapp', war: '**/*.war'
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: '1321c749-af3c-45be-9689-b9223f309263', path: '', url: 'http://172.31.10.247:8080')], contextPath: 'prodapp', war: '**/*.war'
             }
         }
     }
